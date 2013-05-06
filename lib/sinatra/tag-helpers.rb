@@ -154,7 +154,13 @@ module Sinatra
     #   </select>
     #
     def select_for(param, options, attributes = {})
-      select = ["<select #{ to_attributes(attributes) } name='#{ param }' id='#{ param }' size='1'>"]
+      attributes = {
+        :name => param,
+        :id   => param,
+        :size => 1
+      }.merge(attributes)
+
+      select = ["<select #{ to_attributes(attributes) }>"]
 
       options.collect do |key, val|
         select.push option_for(param, :key => key, :value => val, :default => attributes[:default])
@@ -173,13 +179,13 @@ module Sinatra
 
       if range.last > range.first
         # top down
-        range.last.downto(range.first) do |r|
-          options[r] = r
+        range.last.downto(range.first) do |element|
+          options[element] = element
         end
       else
         # bottom up
-        range.last.upto(range.first) do |r|
-          options[r] = r
+        range.last.upto(range.first) do |element|
+          options[element] = element
         end
       end
 
@@ -196,4 +202,6 @@ module Sinatra
       select_for(param, options, attributes)
     end
   end
+
+  helpers TagHelpers
 end
