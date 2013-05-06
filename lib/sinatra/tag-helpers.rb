@@ -26,7 +26,7 @@ module Sinatra
     # mostly so we can override this if we need to look anywhere besides the params
     # * cough * session * cough *
     def param_value(param_name)
-      html_escape(params(param_name.to_sym)) || ''
+      html_escape(params[param_name.to_sym] || '')
     end
 
     # link helper
