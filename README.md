@@ -1,6 +1,6 @@
-# Sinatra::Tag::Helpers
+# Sinatra::TagHelpers
 
-TODO: Write a gem description
+Some real simple tag helpers to make things easier for myself.
 
 ## Installation
 
@@ -18,7 +18,9 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Classic style apps should be good to go and modular apps can do the old:
+
+    helpers Sinatra::TagHelpers
 
 ## Contributing
 
