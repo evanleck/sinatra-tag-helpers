@@ -163,7 +163,18 @@ module Sinatra
       select = ["<select #{ to_attributes(attributes) }>"]
 
       options.collect do |key, val|
-        select.push option_for(param, :key => key, :value => val, :default => attributes[:default])
+        # groups...
+        if val.is_a?(Hash)
+          select.push "<optgroup label='#{ key }'>"
+
+          val.each do |group_key, group_val|
+            select.push option_for(param, :key => group_key, :value => group_val, :default => attributes[:default])
+          end
+
+          select.push "</optgroup>"
+        else
+          select.push option_for(param, :key => key, :value => val, :default => attributes[:default])
+        end
       end
 
       select.push('</select>').join(' ').chomp
