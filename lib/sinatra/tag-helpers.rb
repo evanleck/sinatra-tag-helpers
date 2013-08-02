@@ -168,7 +168,7 @@ module Sinatra
           select.push "<optgroup label='#{ key }'>"
 
           val.each do |group_key, group_val|
-            select.push option_for(param, :key => group_key, :value => group_val, :default => attributes[:default])
+            select.push option_for(param, :key => group_key, :value => group_val, :default => attributes[:default] || param_value(param))
           end
 
           select.push "</optgroup>"
