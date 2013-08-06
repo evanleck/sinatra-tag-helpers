@@ -39,7 +39,7 @@ module Sinatra
     #   <a href='/account/overview' class='current'>Overview</a>
     #
     def link_to(text, link, attributes = {})
-      if link == request.path_info
+      if URI.parse(link).path == request.path_info
         attributes[:class] = "#{ attributes[:class] } current"
       end
 
