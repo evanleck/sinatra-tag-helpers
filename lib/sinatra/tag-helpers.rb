@@ -173,7 +173,7 @@ module Sinatra
 
           select.push "</optgroup>"
         else
-          select.push option_for(param, :key => key, :value => val, :default => attributes[:default])
+          select.push option_for(param, :key => key, :value => val, :default => attributes[:default] || param_value(param))
         end
       end
 
