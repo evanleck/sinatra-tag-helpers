@@ -15,10 +15,10 @@ module Sinatra
         # for things like data: { stuff: 'hey' }
         if value.is_a? Hash
           value.collect do |k, v|
-            "#{key}-#{k}='#{v}'"
+            "#{key}-#{k}=\"#{v}\""
           end
         else
-          value.is_a?(TrueClass) ? key.to_s : "#{key}='#{value}'"
+          value.is_a?(TrueClass) ? key.to_s : "#{key}=\"#{value}\""
         end
       end.join(' ').chomp
     end
