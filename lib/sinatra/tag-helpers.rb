@@ -111,7 +111,7 @@ module Sinatra
         :id   => param
       }.merge(attributes)
 
-      "<textarea #{ attributes.to_attr }>#{ param_value(param) }</textarea>"
+      "<textarea #{ to_attributes(attributes) }>#{ param_value(param) }</textarea>"
     end
 
     # option_for creates an <option> element with the specified attributes
