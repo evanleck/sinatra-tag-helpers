@@ -156,8 +156,7 @@ module Sinatra
     def select_for(param, options, attributes = {})
       attributes = {
         :name => param,
-        :id   => param,
-        :size => 1
+        :id   => param
       }.merge(attributes)
 
       select = ["<select #{ to_attributes(attributes) }>"]
