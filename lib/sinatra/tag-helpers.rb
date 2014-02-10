@@ -91,7 +91,7 @@ module Sinatra
     #
     # Which will be marked with `checked` if `User.is_cool?` evaluates to true
     #
-    def checkbox_for(param, checked_if, attributes = {})
+    def checkbox_for(param, checked_if = false, attributes = {})
       attributes = {
         :type  => 'checkbox',
         :value => 'true'
