@@ -20,7 +20,7 @@ Or install it yourself as:
 
 Classic style apps should be good to go and modular apps can do the old:
 
-    helpers Sinatra::TagHelpers
+    register Sinatra::TagHelpers
 
 ## Contributing
 
