@@ -156,6 +156,8 @@ module Sinatra
       #   </select>
       #
       def select_for(param, options, attributes = {})
+        raise ArgumentError, "Options for `select_for` should be a Hash." unless options.is_a?(Hash)
+
         attributes = {
           :name => param,
           :id   => param
